@@ -1,4 +1,5 @@
 <div class="detail">
+
     <div class="left">
         <img class="avatar" src="resources/images/<?= $data["avatar"] ?>">
         <div class="stats" style="background-color: yellowgreen">
@@ -31,9 +32,9 @@
             } ?>
             
             </select>
-        <input type="submit" value="submit">      
-        
+        <input type="submit" value="submit">
     </form>
 
     <div style="clear: both"></div>
+
 </div>

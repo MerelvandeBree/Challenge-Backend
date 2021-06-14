@@ -1,6 +1,7 @@
 <?php
 
 function createDatabaseConnection(){
+
     $servername = "localhost";
     $username = "root";
     $password = "mysql";
@@ -15,48 +16,62 @@ function createDatabaseConnection(){
     catch(PDOException $e){
         echo "connection failed: " . $e->getMessage();
     }
+
 }
 
 // read tittles from all the subjects
 function readCharacters(){
+
     $dbConnection = createDatabaseConnection();
     $stmt = $dbConnection->prepare("SELECT *  FROM characters");
+
     $stmt->execute();
     $result = $stmt->fetchAll();
     $dbConnection = null;
     return $result;
+
 }
 
 function readCharacter($id){
+
     $dbConnection = createDatabaseConnection();
     $stmt = $dbConnection->prepare("SELECT * FROM characters WHERE id=:id");
     $stmt->bindParam(":id", $id);
+
     $stmt->execute();
     $result = $stmt->fetch();
     $dbConnection = null;
     return $result;
+
 }
 
-function readLocations(){ 
+function readLocations(){
+
     $dbConnection = createDatabaseConnection();
     $stmt = $dbConnection->prepare("SELECT *  FROM locations");
+
     $stmt->execute();
     $result = $stmt->fetchAll();
     $dbConnection = null;
     return $result;
+
 }
 
 function readLocation($id){
+
     $dbConnection = createDatabaseConnection();
     $stmt = $dbConnection->prepare("SELECT * FROM locations WHERE id=:id");
     $stmt->bindParam(":id", $id);
+
     $stmt->execute();
     $result = $stmt->fetch();
     $dbConnection = null;
     return $result;
+
 }
 
 function updateSelect($id, $location){
+
     $dbConnection = createDatabaseConnection();
     $stmt = $dbConnection->prepare("UPDATE characters SET location=:location WHERE id=:id");
     $stmt->bindParam(":location", $location);
@@ -64,16 +79,12 @@ function updateSelect($id, $location){
     
     $stmt->execute();
 
-    
 }
 
 function uploadLocation($toevoegen){
-    
-        
-    $dbConnection = createDatabaseConnection();
-    
-    $stmt = $dbConnection->prepare("INSERT INTO locations (name) VALUES (:toevoegen)");
 
+    $dbConnection = createDatabaseConnection();
+    $stmt = $dbConnection->prepare("INSERT INTO locations (name) VALUES (:toevoegen)");
     $stmt->bindParam(":toevoegen", $toevoegen);
 
     $stmt->execute();
@@ -84,14 +95,12 @@ function uploadLocation($toevoegen){
 function trashcan($id){
 
     $dbConnection = createDatabaseConnection();
-    
     $stmt = $dbConnection->prepare("DELETE FROM locations WHERE id=:id");
-    
     $stmt->bindParam(":id", $id);
-    
 
     $stmt->execute();
     $dbConnection = null;
+
 }
 
 

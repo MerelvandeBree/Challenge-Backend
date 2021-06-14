@@ -1,4 +1,5 @@
 <a class="item" href="character.php?id=<?= $data["id"] ?>">
+
     <div class="left">
         <img class="avatar" src="resources/images/<?= $data["avatar"] ?>">
     </div>

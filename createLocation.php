@@ -16,6 +16,7 @@
     <link href="resources/css/style.css" rel="stylesheet"/>
 </head>
 <body>
+
 	<header>
 		<h1> Locatie toevoegen</h1>
     	<a class="backbutton" href="locations.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a>
@@ -29,5 +30,6 @@
 	</div>
 
 	<footer>&copy; Merel van de Bree 2021</footer>
+
 </body>
 </html>

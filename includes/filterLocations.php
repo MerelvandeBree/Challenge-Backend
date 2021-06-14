@@ -1,0 +1,1 @@
+<a class="item" href="filteredLocation.php?id=<?= $data["id"] ?>"> <?= $data["name"] ?> </a>

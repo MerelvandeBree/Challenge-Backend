@@ -3,6 +3,7 @@
     include("resources/datalayer/datalayer.php");
 
     $characters = readCharacters();
+    $locations  = readLocations();
 
 ?>
 
@@ -15,19 +16,26 @@
     <link href="resources/css/style.css" rel="stylesheet"/>
 </head>
 <body>
+
     <header>
         <h1>Alle <?= sizeof($characters) ?> characters uit de database</h1>
     </header>
 
     <div id="container">
+
+        <?php foreach ($locations as $data){
+            require("includes/filterLocations.php");
+        } ?>
+
+        <a class="item" href="locations.php">
+            <h1 class="locations">Locaties beheren</h1>
+        </a>
         <?php foreach ($characters as $data){
             require("includes/items.php");
         } ?>
-        <a class="item" href="locations.php">
-            <h1 class="locations">Locations</h1>
-        </a>
     </div>
 
     <footer>&copy; Merel van de Bree 2021</footer>
+
 </body>
 </html>
