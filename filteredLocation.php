@@ -1,9 +1,10 @@
 <?php
 
 include("resources/datalayer/datalayer.php");
+$id = $_GET["id"];
 
 $characters = readCharacters();
-$locations  = readLocations();
+$location  = readLocation($id);
 
 ?>
 
@@ -17,17 +18,21 @@ $locations  = readLocations();
 </head>
 <body>
 
-    <?php foreach ($locations as $data){ ?>
+<!--    --><?php //foreach ($locations as $data){ ?>
         <header>
-            <h1> <?=$data["name"]?></h1>
+            <h1> <?=$location["name"]?></h1>
             <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a>
         </header>
-    <? } ?>
+<!--    --><?// } ?>
 
     <div id="container">
 
     <?php foreach ($characters as $data){
-        require("includes/items.php");
+        if($data['location'] !== $id ) {
+            continue;
+        } else {
+            require("includes/filteredItems.php");
+        }
     } ?>
 
-    </div>
+    </div> 

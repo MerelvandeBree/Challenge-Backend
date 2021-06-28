@@ -5,7 +5,7 @@
     </div>
 
     <div class="right">
-        <h2><?= $data["name"] ?></h2>
+        <h2><?= $data["name"] ?> </h2>
         <div class="stats">
             <ul class="fa-ul">
                 <li><span class="fa-li"><i class="fas fa-heart"></i></span> <?= $data["health"] ?></li>
@@ -15,5 +15,5 @@
         </div>
     </div>
 
-    <div class="detailButton"><i class="fas fa-search"></i> bekijk</div>
+    <div class="detailButton"> <i class="fas fa-search"></i> bekijk</div>
 </a>
